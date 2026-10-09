@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bright Path Education</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #203040;
+      background: #f4f8fb;
+    }
+    header {
+      padding: 18px 8%;
+      background: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px #0001;
+    }
+    .logo { color: #126782; font-size: 22px; font-weight: bold; }
+    nav a {
+      margin-left: 20px;
+      color: #34495e;
+      text-decoration: none;
+    }
+    .hero {
+      padding: 75px 8%;
+      background: linear-gradient(120deg, #dff5f1, #e8efff);
+      text-align: center;
+    }
+    .hero h1 { font-size: clamp(34px, 6vw, 58px); margin: 0 0 15px; }
+    .hero p { max-width: 620px; margin: 0 auto 25px; color: #526575; line-height: 1.6; }
+    .button {
+      display: inline-block;
+      background: #126782;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      border: 0;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    section { padding: 48px 8%; }
+    h2 { text-align: center; margin-top: 0; }
+    .courses {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 18px;
+    }
+    .card {
+      padding: 22px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 18px #17354a0d;
+    }
+    .card h3 { color: #126782; margin-top: 0; }
+    .card p { color: #607080; line-height: 1.5; }
+    .plan {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 24px;
+      border-radius: 12px;
+    }
+    label { display: block; margin: 14px 0 6px; font-weight: bold; }
+    input, select {
+      width: 100%;
+      padding: 11px;
+      border: 1px solid #ccd7df;
+      border-radius: 7px;
+      font-size: 16px;
+    }
+    #message { color: #126782; font-weight: bold; }
+    footer {
+      padding: 24px;
+      background: #203040;
+      color: white;
+      text-align: center;
+    }
+    @media (max-width: 600px) {
+      header { flex-direction: column; gap: 12px; }
+      nav a { margin: 0 8px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">Bright Path</div>
+    <nav>
+      <a href="#courses">Courses</a>
+      <a href="#plan">Study Plan</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Learn something great</h1>
+      <p>Build new skills, explore your interests, and make progress toward your learning goals.</p>
+      <a class="button" href="#courses">Explore courses</a>
+    </section>
+
+    <section id="courses">
+      <h2>Popular Courses</h2>
+      <div class="courses">
+        <article class="card">
+          <h3>Mathematics</h3>
+          <p>Practice problem-solving, numbers, and logical thinking.</p>
+        </article>
+        <article class="card">
+          <h3>Science</h3>
+          <p>Discover how the natural world works through science.</p>
+        </article>
+        <article class="card">
+          <h3>English</h3>
+          <p>Improve reading, writing, and communication skills.</p>
+        </article>
+        <article class="card">
+          <h3>Computer Skills</h3>
+          <p>Learn digital skills and the basics of coding.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="plan">
+      <h2>Make a Study Plan</h2>
+      <form class="plan" id="studyForm">
+        <label for="student">Your name</label>
+        <input id="student" placeholder="Enter your name" required>
+
+        <label for="subject">Choose a subject</label>
+        <select id="subject">
+          <option>Mathematics</option>
+          <option>Science</option>
+          <option>English</option>
+          <option>Computer Skills</option>
+        </select>
+
+        <label for="goal">Your learning goal</label>
+        <input id="goal" placeholder="For example: Study 20 minutes each day" required>
+
+        <br><br>
+        <button class="button" type="submit">Save my goal</button>
+        <p id="message"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>Keep learning. Keep growing.</p>
+  </footer>
+
+  <script>
+    document.getElementById("studyForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const name = document.getElementById("student").value;
+      const subject = document.getElementById("subject").value;
+      const goal = document.getElementById("goal").value;
+
+      document.getElementById("message").textContent =
+        `Great work, ${name}! Your ${subject} goal is: ${goal}`;
+    });
+  </script>
+
+</body>
+</html>
